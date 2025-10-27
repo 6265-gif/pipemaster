@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PipeMaster Plumbing Co. | Same-Day, Honest Plumbing in Columbus, OH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-blue: #0a2463;
+            --metallic-gray: #5d737e;
+            --orange-accent: #ff6b35;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto Slab', serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-weight: 900;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 1.5rem;
+        }
+        
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--orange-accent);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 70px;
+            overflow: hidden;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 36, 99, 0.7);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--orange-accent);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #e55a2b;
+            transform: translateY(-3px);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--white);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Floating Call Button */
+        .floating-call {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 70px;
+            height: 70px;
+            background-color: var(--orange-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            cursor: pointer;
+            transition: transform 0.3s;
+            animation: pulse 2s infinite;
+        }
+        
+        .floating-call:hover {
+            transform: scale(1.1);
+        }
+        
+        .floating-call i {
+            color: var(--white);
+            font-size: 1.8rem;
+            transform: rotate(45deg);
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 107, 53, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
+            }
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--navy-blue);
+            display: inline-block;
+            padding: 0 1rem;
+            background-color: var(--white);
+        }
+        
+        .section-title::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: var(--metallic-gray);
+            z-index: -1;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--light-gray);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .about-item {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-top: 4px solid var(--orange-accent);
+        }
+        
+        .about-item h3 {
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            border-left: 4px solid var(--navy-blue);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--navy-blue);
+        }
+        
+        .service-card h3 {
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--light-gray);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: """;
+            font-size: 5rem;
+            color: var(--metallic-gray);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            opacity: 0.2;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--navy-blue);
+        }
+        
+        /* Service Area Section */
+        .service-area-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .service-area-text {
+            font-size: 1.1rem;
+        }
+        
+        .neighborhoods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .neighborhood {
+            background-color: var(--metallic-gray);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: var(--white);
+            padding: 3rem 2rem 1rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: var(--orange-accent);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--orange-accent);
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-icon {
+            margin-right: 10px;
+            color: var(--orange-accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+            color: #999;
+        }
+        
+        /* Water Animation */
+        .water-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .water-drop {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: rgba(10, 36, 99, 0.3);
+            border-radius: 50%;
+            animation: waterFlow 10s linear infinite;
+        }
+        
+        @keyframes waterFlow {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav {
+                width: 100%;
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                margin-top: 1rem;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 3rem 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Water Animation -->
+    <div class="water-animation" id="waterAnimation"></div>
+    
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-icon">🔧</span>
+                <span>PipeMaster Plumbing Co.</span>
+            </div>
+            <button class="mobile-menu-btn">☰</button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#about">Our Difference</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#service-area">Service Area</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <video class="hero-video" autoplay muted loop>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-plumber-working-on-a-pipe-43735-large.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h1>PipeMaster Plumbing Co.</h1>
+            <p>"When your pipes call, we answer."</p>
+            <p>Columbus's go-to plumbers for fast, honest, same-day repairs.</p>
+            <div class="hero-buttons">
+                <a href="tel:6145550172" class="btn">Call Now: (614) 555-0172</a>
+                <a href="#contact" class="btn btn-secondary">Request a Quote</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Floating Call Button -->
+    <a href="tel:6145550172" class="floating-call">
+        <i>🔧</i>
+    </a>
+    
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>The PipeMaster Difference</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-item">
+                    <h3>Be there when it breaks</h3>
+                    <p>Pipes don't care what time it is. We do. That's why our 24/7 team always answers.</p>
+                </div>
+                <div class="about-item">
+                    <h3>Be honest. Always.</h3>
+                    <p>What we quote is what you pay. No mysterious "weekend surcharges."</p>
+                </div>
+                <div class="about-item">
+                    <h3>Do the job once — and do it right</h3>
+                    <p>Every repair comes with a workmanship guarantee because shortcuts don't last.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <p><strong>That's PipeMaster: Columbus service, old-school work ethic, modern tech.</strong></p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>What We Fix (and How Fast We Fix It)</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚰</div>
+                    <h3>Hidden Leaks</h3>
+                    <p>That ruin walls and water bills.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛁</div>
+                    <h3>Clogged Drains</h3>
+                    <p>That won't drain properly.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔥</div>
+                    <h3>Water Heaters</h3>
+                    <p>That die at the worst possible time.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💥</div>
+                    <h3>Burst Pipes</h3>
+                    <p>That burst like geysers at 3 a.m.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <p><strong>Our trucks come fully loaded — parts, tools, replacements — so we can handle 90% of jobs on the first visit.</strong></p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>People in Columbus Talk — Here's What They Say</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"They showed up within an hour, found the leak behind the drywall, and fixed it clean. Straightforward, fair, no upsell."</p>
+                    <p class="testimonial-author">— Lydia R., Worthington</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Text updates, honest pricing, and they left the place spotless. It's rare to find tradesmen this good anymore."</p>
+                    <p class="testimonial-author">— Ben D., Downtown Columbus</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Service Area Section -->
+    <section id="service-area" class="service-area">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>Built for Columbus Homes & Businesses</h2>
+            </div>
+            <div class="service-area-content">
+                <div class="service-area-text">
+                    <p>Old houses in German Village? We know the pipes.<br>
+                    New builds in Dublin? We know the codes.<br>
+                    Restaurants, offices, or apartments — we've seen it all.</p>
+                    <p>Columbus water systems have quirks, and we've learned every one of them. That's what makes our service faster, cleaner, and smarter.</p>
+                    <div class="neighborhoods">
+                        <span class="neighborhood">German Village</span>
+                        <span class="neighborhood">Dublin</span>
+                        <span class="neighborhood">Worthington</span>
+                        <span class="neighborhood">Downtown</span>
+                        <span class="neighborhood">Short North</span>
+                        <span class="neighborhood">Clintonville</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="section-container">
+            <h2>Your Pipes Deserve the Masters</h2>
+            <p>Don't gamble with your plumbing — call the pros who built their name on reliability.</p>
+            <div class="cta-buttons">
+                <a href="tel:6145550172" class="btn">Call Now: (614) 555-0172</a>
+                <a href="#contact" class="btn btn-secondary">Request a Quote</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>PipeMaster Plumbing Co.</h3>
+                <p>Columbus's trusted plumbers for fast, honest, same-day repairs.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <span class="contact-icon">📍</span>
+                    <span>Columbus, OH</span>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-icon">📞</span>
+                    <a href="tel:6145550172">(614) 555-0172</a>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-icon">📧</span>
+                    <a href="mailto:service@pipemasterplumbing.com">service@pipemasterplumbing.com</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about">Our Difference</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#service-area">Service Area</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 PipeMaster Plumbing Co. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+        
+        // Water Animation
+        function createWaterDrops() {
+            const waterAnimation = document.getElementById('waterAnimation');
+            const dropsCount = 50;
+            
+            for (let i = 0; i < dropsCount; i++) {
+                const drop = document.createElement('div');
+                drop.classList.add('water-drop');
+                
+                // Random position and delay
+                const left = Math.random() * 100;
+                const delay = Math.random() * 10;
+                
+                drop.style.left = `${left}%`;
+                drop.style.animationDelay = `${delay}s`;
+                
+                waterAnimation.appendChild(drop);
+            }
+        }
+        
+        // Initialize water animation
+        createWaterDrops();
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mainNav').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
